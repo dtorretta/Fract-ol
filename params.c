@@ -1,17 +1,40 @@
-#include "fractol.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   params.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/03 19:18:31 by dtorrett          #+#    #+#             */
+/*   Updated: 2024/05/03 19:38:40 by dtorrett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	mandelbrot_param(t_fractal *fractal, char *name)
+#include "fract.h"
+
+void	mandelbrot_param(t_data *fractal)
 {
-    fractal->width = 1280;
-	fractal->height = 720;
-	//fractal->iterations = 150;
-	fractal->zoom = 1;
-	fractal->c.x = 0;
-	fractal->c.y = 0;
-	fractal->z.x = 0;
-	fractal->z.y = 0;
-	fractal->xarrow = 0; //no entiendo
-	fractal->yarrow = 270; //no entiendo
-	fractal->color = 0xccf1ff;
-	fractal->name = name;
+    fractal->width = 1000;
+	fractal->height = 1000;
+	fractal->iterations = 100;
+	fractal->zoom = 200;	
+    fractal->position_c.x = 0;
+    fractal->position_c.y = 0;
+	//fractal->xarrow = 0; //no entiendo
+	//fractal->yarrow = 270; //no entiendo
+	fractal->color = 0xfffff;
+	//fractal->name = name;
+}
+void	julia_param(t_data *fractal)
+{
+    fractal->width = 1000;
+	fractal->height = 1000;
+	fractal->iterations = 100;
+	fractal->zoom = 200;	
+    fractal->position_c.x = 0;
+    fractal->position_c.y = 0;
+	//fractal->xarrow = 0; //no entiendo
+	//fractal->yarrow = 270; //no entiendo
+	fractal->color = 0xfffff;
+	//fractal->name = name;
 }

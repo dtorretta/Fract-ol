@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:39:00 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/02/15 18:31:50 by dtorrett         ###   ########.fr       */
+/*   Created: 2023/08/27 18:07:29 by dtorrett          #+#    #+#             */
+/*   Updated: 2023/11/23 17:57:52 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <limits.h>
-# include <stdlib.h>
-
-
-typedef struct s_fractal
+size_t	ft_strlen(const char *s)
 {
-    double x;
-    double y;
-}           t_fractal;
+	size_t	count;
 
-void	mandelbrot_param(t_fractal *fractal, char *name);
-
-#endif
+	count = 0;
+	while (s[count])
+		count++;
+	return (count);
+}
+/*
+int	main(void)
+{
+	char a[] = "be vida es bella";
+	
+	printf("%zu\n", ft_strlen(a));
+	printf("%zu\n", strlen(a));
+	
+	return (0); 
+}*/
