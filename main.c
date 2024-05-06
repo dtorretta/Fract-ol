@@ -6,11 +6,12 @@
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:03:33 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/03 19:57:16 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/06 19:35:42 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
+//REMEMBER TO CHANGE THE MINILIBX 
 
 /*void	ft_zoom(int x, int y, t_fractal2 *data)
 {
@@ -58,45 +59,21 @@ int	mouse_hook(int mousecode, int x, int y, t_fractal2 *data)
 	put_text(data);
 	return (0);
 }*/
-void	draw_fractal(t_data *fractal, char *name)
-{
-	// funciona pra julia?
-	int x;
-	int y;
-	
-	x = 0;
-	y = 0;
-	while (x < fractal->width)
-	{
-		while (y < fractal->height)
-		{
-			if (ft_strncmp(name, "mandel", 6) == 0)
-				fractal_mandel(x, y, fractal);
-			y++;
-		}
-		y = 0;
-		x++;
-	}
-}
-
 void	initiate_params(t_data *fractal, char *name)
 {
 	if (ft_strncmp(name, "mandel", 6) == 0) //hay problema si fuciona con otro nombre??
 	{
-		fractal->win = mlx_new_window(fractal->mlx, 1000, 1100,
+		fractal->win = mlx_new_window(fractal->mlx, 1000, 1000,
 				"Mandelbrot Set");
 		mandelbrot_param(fractal);
 	}
-	else if (ft_strncmp(name, "julia", 6) == 0)
+	else if (ft_strncmp(name, "julia", 5) == 0) //cambiar a julia
 	{
-		fractal->win = mlx_new_window(fractal->mlx, 1000, 1100, "Julia Set");
+		fractal->win = mlx_new_window(fractal->mlx, 1000, 1000, "Julia Set");
 		julia_param(fractal);
 	}
 	else
-	{
 		ft_putendl_fd("Please specify a valid name of the fractol \"mandel\", \"julia\" or \"XXX\"", 1);
-	}
-	draw_fractal(fractal, name);
 }
 int	main(int argc, char **argv)
 {
