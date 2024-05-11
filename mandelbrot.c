@@ -12,10 +12,20 @@
 
 #include "fract.h"
 
-void	fractal_mandel (int x, int y, t_data *mandel)
+
+//Here we scale down the square (width * height) to (max 2.00 * min - 1.99) 
+//x is the pixel in the map in the (width * height) that we wanna scale
+//x * (max - min) / width + min
+//-1.99 para centrar el conjunto de Mandelbrot en el plano complejo. 
+
+//in Y axes the max value is negative and the min is positive. x --> (min, max) --> (-2, 2) & y --> (min, max) --> (2, -2)
+
+//if x^2 + y^2 > 4 stop iterating. if we create an imaginary triangle taking the point (x,y) and (0,0) we can calculate its hypotenuse. 
+//considering the max 2.00 and min -1.99, if its calculation is > 4 I asume that the point escapes.
+void	fractal_mandel(int x, int y, t_data *mandel)
 {
-    int i;
-    double	z_x;
+	int i;
+	double	z_x;
 	double	z_y;
 	double	tempz_x;
 	
@@ -23,41 +33,44 @@ void	fractal_mandel (int x, int y, t_data *mandel)
 	z_x = 0;
 	z_y = 0;
    	
-	//El valor de x (el punto en el mapa) se multiplica por el factor de escala, que es la diferencia entre el límite superior e inferior del rango deseado (1.0 + 2.00) (rango total del eje x)
-    //y se divide por el total del ancho - 1 porque los índices de píxeles generalmente comienzan desde 0 en los lenguajes de programación.
-    //-2.0 para centrar el conjunto de Mandelbrot en el plano complejo. 
-	mandel->position_c.x = x * ((1.0 + 2.00) / (mandel->width - 1)) - 2.00;
-    mandel->position_c.y = y * (1.2 + 1.3) / (mandel->height - 1) - 1.3;
+   	mandel->position_c.x = x * (2.00 + 1.99) * mandel->zoom / WIDTH - 1.99 + (mandel->shift.x * mandel->zoom);
+	mandel->position_c.y = y * (-2.00 - 1.99) * mandel->zoom / HEIGHT + 1.99 + (mandel->shift.y * mandel->zoom);
 
-    while(i < mandel->iterations && z_x * z_x + z_y * z_y < 4)
-    {
-        tempz_x = z_x * z_x - z_y * z_y + mandel->position_c.x;
+	while(i < mandel->iterations && z_x * z_x + z_y * z_y < 4)
+	{
+		tempz_x = z_x * z_x - z_y * z_y + mandel->position_c.x;
 		z_y = 2.0 * z_x * z_y + mandel->position_c.y;
 		z_x = tempz_x;
 		i++;
-    }
-
-    if (i == mandel->iterations) //dentro
-        mlx_pixel_put(mandel->mlx, mandel->win, x, y, 0x000000);
-    else //fuera 
-        mlx_pixel_put(mandel->mlx, mandel->win, x, y, mandel->color * i / 100);
-}
-
-void	draw_mandelbrot(t_data *fractal)
-{
-	int x;
-	int y;
-	
-	x = 0;
-	y = 0;
-	while (x < fractal->width)
-	{
-		while (y < fractal->height)
-		{
-			fractal_mandel(x, y, fractal);
-			y++;
-		}
-		y = 0;
-		x++;
 	}
+	
+	float t = (float)i / (float)mandel->iterations;
+	int color = interpolateColor(mandel->base_color_1, mandel->base_color_2, t);
+	
+	if (i == mandel->iterations) //dentro
+		mlx_pixel_put(mandel->mlx, mandel->win, x, y, 0x000000);
+	else //fuera 
+		//mlx_pixel_put(mandel->mlx, mandel->win, x, y, color);
+		mlx_pixel_put(mandel->mlx, mandel->win, x, y, mandel->color * i / 100);
+		
 }
+
+// void	draw_mandelbrot(t_data *fractal)
+// {
+// 	int x;
+// 	int y;
+	
+// 	x = 0;
+// 	y = 0;
+// 	while (x < WIDTH)
+// 	{
+// 		while (y < HEIGHT)
+// 		{
+// 			fractal_mandel(x, y, fractal);
+// 			y++;
+// 		}
+// 		y = 0;
+// 		x++;
+// 	}
+// 	//mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, x, y); //probar sin esto //creo que solo sirve si haces tu propio put pixel
+// }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 18:09:39 by dtorrett          #+#    #+#              #
-#    Updated: 2024/05/03 19:28:35 by dtorrett         ###   ########.fr        #
+#    Updated: 2024/05/10 00:03:02 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LEAKFLAGS		= -fsanitize=leak -fsanitize=address
 #			Source files			#
 #SRCS = fractol.c mandelbrot.c
 #SRCS = fractol.c buttons.c mandel.c
-SRCS = main.c mandelbrot.c params.c
+SRCS = main.c mandelbrot.c params.c julia.c color.c events.c
 
 OBJS = $(SRCS:.c=.o)
 
