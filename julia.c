@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:00:45 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/11 15:57:42 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 16:59:03 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void fractal_julia(double x, double y, t_data *julia)
 	z.x = x * (2.00 + 1.99) * julia->zoom / WIDTH - 1.99 + (julia->shift.x * julia->zoom); //+ julia->track.x; //track
 	z.y = y * (-2.00 - 1.99) * julia->zoom / HEIGHT + 1.99 + (julia->shift.y * julia->zoom); //+ julia->track.y;
 	
-	printf("valor %f\n", z.x);
-	double pruebax = z.x - julia->track.x;
-	printf("valor %f\n", pruebax);
-	z.x += pruebax;
+	//printf("valor %f\n", z.x);
+	//double pruebax = z.x - julia->track.x;
+	//printf("valor %f\n", pruebax);
+	//z.x += pruebax;
 	
 	while(i < julia->iterations && z.x * z.x + z.y * z.y < 4)
     {

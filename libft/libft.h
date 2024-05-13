@@ -6,19 +6,19 @@
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:37:08 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/02/01 16:27:11 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:42:21 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 // LIBC FUNCTIONS//
 int					ft_isalpha(int c);
@@ -89,7 +89,7 @@ void				ft_putnbr(unsigned int n, int fd, int *count);
 void				ft_puthex_fd(unsigned long long n, int fd, int *count,
 						char conv);
 
-// GET NEXT LINE//			
+// GET NEXT LINE//
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
@@ -103,5 +103,8 @@ size_t				ft_strlen(const char *s);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strjoin_2(char *s1, const char *s2);
 char				*ft_strdup(const char *s);
+
+// MY CREATIONS //
+double			ft_atof(char *nptr);
 
 #endif

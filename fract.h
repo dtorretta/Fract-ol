@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fract.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:01:45 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/11 15:43:25 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/13 16:59:43 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int interpolateColor(int color1, int color2, float t);
 int mouse_handle(int button, int x, int y, t_data *fractal);
 int key_handle(int keycode, t_data *fractal);
 int close_handle(t_data *fractal);
-int mouse_move(int x, int y, t_data *fractal);
+//int mouse_move(int x, int y, t_data *fractal);
 
 /* MAIN */
 void	draw_fractal(t_data *fractal, char *name);

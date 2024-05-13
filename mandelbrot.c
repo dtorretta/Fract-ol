@@ -22,6 +22,7 @@
 
 //if x^2 + y^2 > 4 stop iterating. if we create an imaginary triangle taking the point (x,y) and (0,0) we can calculate its hypotenuse. 
 //considering the max 2.00 and min -1.99, if its calculation is > 4 I asume that the point escapes.
+
 void	fractal_mandel(int x, int y, t_data *mandel)
 {
 	int i;
@@ -52,7 +53,6 @@ void	fractal_mandel(int x, int y, t_data *mandel)
 	else //fuera 
 		//mlx_pixel_put(mandel->mlx, mandel->win, x, y, color);
 		mlx_pixel_put(mandel->mlx, mandel->win, x, y, mandel->color * i / 100);
-		
 }
 
 // void	draw_mandelbrot(t_data *fractal)

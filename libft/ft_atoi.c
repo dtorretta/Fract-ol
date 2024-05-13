@@ -6,7 +6,7 @@
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:37:31 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/01/17 16:39:44 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:20:22 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ long	ft_atoi(const char *nptr)
 	}
 	return (result * sign);
 }
-/*
+/*z
 int	main(void)
 {
 	char a[] = "---+--+1234ab567";
