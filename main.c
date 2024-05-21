@@ -6,14 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:03:33 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/21 23:49:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/22 00:33:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
-
-
-//REMEMBER TO CHANGE THE MINILIBX 
 
 //color_info es un puntero calculado que apunta a una ubicación específica en el buffer de datos. Cuando escribes en *(unsigned int *)color_info, estás escribiendo directamente en la memoria en esa ubicación.
 //estás calculando la dirección exacta dentro del buffer de la imagen donde se encuentra el píxel en la posición (x, y).
