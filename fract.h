@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fract.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:01:45 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/13 16:59:43 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/21 20:32:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void fractal_julia(double x, double y, t_data *julia);
 void	mandelbrot_param(t_data *fractal);
 void	julia_param(t_data *fractal);
 
-/* COLOR */
-int interpolateColor(int color1, int color2, float t);
-
 /* EVENTS */
 int mouse_handle(int button, int x, int y, t_data *fractal);
 int key_handle(int keycode, t_data *fractal);
@@ -80,6 +77,7 @@ int close_handle(t_data *fractal);
 
 /* MAIN */
 void	draw_fractal(t_data *fractal, char *name);
+void    my_put_pixel(t_data *fractal, int x, int y, int iterations);
 
 
 #endif

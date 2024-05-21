@@ -23,7 +23,7 @@
 //if x^2 + y^2 > 4 stop iterating. if we create an imaginary triangle taking the point (x,y) and (0,0) we can calculate its hypotenuse. 
 //considering the max 2.00 and min -1.99, if its calculation is > 4 I asume that the point escapes.
 
-void	fractal_mandel(int x, int y, t_data *mandel)
+void fractal_mandel(int x, int y, t_data *mandel)
 {
 	int i;
 	double	z_x;
@@ -45,32 +45,14 @@ void	fractal_mandel(int x, int y, t_data *mandel)
 		i++;
 	}
 	
-	float t = (float)i / (float)mandel->iterations;
-	int color = interpolateColor(mandel->base_color_1, mandel->base_color_2, t);
+	my_put_pixel(mandel, x, y, i); //es necesario enviar el color???
+	// float t = (float)i / (float)mandel->iterations;
+	// int color = interpolateColor(mandel->base_color_1, mandel->base_color_2, t);
 	
-	if (i == mandel->iterations) //dentro
-		mlx_pixel_put(mandel->mlx, mandel->win, x, y, 0x000000);
-	else //fuera 
-		//mlx_pixel_put(mandel->mlx, mandel->win, x, y, color);
-		mlx_pixel_put(mandel->mlx, mandel->win, x, y, mandel->color * i / 100);
+	// if (i == mandel->iterations) //dentro
+	// 	mlx_pixel_put(mandel->mlx, mandel->win, x, y, 0x000000);
+	// else //fuera 
+	// 	//mlx_pixel_put(mandel->mlx, mandel->win, x, y, color);
+	// 	//mlx_pixel_put(mandel->mlx, mandel->win, x, y, mandel->color * i / 100);
+	// 	mlx_put_image_to_window(mandel->mlx, mandel->win, mandel->img, x, y);
 }
-
-// void	draw_mandelbrot(t_data *fractal)
-// {
-// 	int x;
-// 	int y;
-	
-// 	x = 0;
-// 	y = 0;
-// 	while (x < WIDTH)
-// 	{
-// 		while (y < HEIGHT)
-// 		{
-// 			fractal_mandel(x, y, fractal);
-// 			y++;
-// 		}
-// 		y = 0;
-// 		x++;
-// 	}
-// 	//mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, x, y); //probar sin esto //creo que solo sirve si haces tu propio put pixel
-// }

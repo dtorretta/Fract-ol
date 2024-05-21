@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:00:45 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/13 16:59:03 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:25:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@ void fractal_julia(double x, double y, t_data *julia)
 	i = 0;
 	
 	
-	z.x = x * (2.00 + 1.99) * julia->zoom / WIDTH - 1.99 + (julia->shift.x * julia->zoom); //+ julia->track.x; //track
-	z.y = y * (-2.00 - 1.99) * julia->zoom / HEIGHT + 1.99 + (julia->shift.y * julia->zoom); //+ julia->track.y;
-	
-	//printf("valor %f\n", z.x);
-	//double pruebax = z.x - julia->track.x;
-	//printf("valor %f\n", pruebax);
-	//z.x += pruebax;
+	z.x = x * (2.00 + 1.99) * julia->zoom / WIDTH - 1.99 + (julia->shift.x * julia->zoom);
+	z.y = y * (-2.00 - 1.99) * julia->zoom / HEIGHT + 1.99 + (julia->shift.y * julia->zoom);
 	
 	while(i < julia->iterations && z.x * z.x + z.y * z.y < 4)
     {
@@ -36,13 +31,15 @@ void fractal_julia(double x, double y, t_data *julia)
 		z.x = tempz_x;
 		i++;
     }
+    
+    my_put_pixel(julia, x, y, i); 
+    
+    // if (i == julia->iterations) //dentro
+    //     mlx_pixel_put(julia->mlx, julia->win, x, y, 0x000000);
+    // else //fuera 
+    //     mlx_pixel_put(julia->mlx, julia->win, x, y, 0x660066 * i / 100);
         
-    if (i == julia->iterations) //dentro
-        mlx_pixel_put(julia->mlx, julia->win, x, y, 0x000000);
-    else //fuera 
-        mlx_pixel_put(julia->mlx, julia->win, x, y, 0x660066 * i / 100);
-        
-    //ft_printf("x= %d, y= %d\n", julia->position_c.x, julia->position_c.y);
+    // //ft_printf("x= %d, y= %d\n", julia->position_c.x, julia->position_c.y);
         
 }
 

@@ -58,7 +58,7 @@ int key_handle(int keycode, t_data *fractal)
     else if (keycode == XK_Left)
 		fractal->shift.x -= 0.25;
 	else if (keycode == XK_space && !strncmp(fractal->name, "mandelbrot", 10))
-        fractal->color += 1000; //0xf2f2f2; blanco // 0x001f4d; azul 0x0000ff; += 100000; += 100000000;     //fractal->base_color_1 += 0x0f0118;
+        fractal->color += 1000;
 	else if (keycode == XK_a && !strncmp(fractal->name, "julia", 5))
 	{
         fractal->position_c.x += 0.05;
@@ -70,8 +70,6 @@ int key_handle(int keycode, t_data *fractal)
         fractal->position_c.y += 0.05;
 	}
 
-    //printf("x= %f, y= %f\n", fractal->position_c.x, fractal->position_c.y);
-	    
 	    
           
 			

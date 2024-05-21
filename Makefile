@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 18:09:39 by dtorrett          #+#    #+#              #
-#    Updated: 2024/05/10 00:03:02 by marvin           ###   ########.fr        #
+#    Updated: 2024/05/21 20:32:26 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LEAKFLAGS		= -fsanitize=leak -fsanitize=address
 #			Source files			#
 #SRCS = fractol.c mandelbrot.c
 #SRCS = fractol.c buttons.c mandel.c
-SRCS = main.c mandelbrot.c params.c julia.c color.c events.c
+SRCS = main.c mandelbrot.c params.c julia.c events.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -45,10 +45,14 @@ $(LIBMLX):
 # Build the executable using object files and libft
 $(NAME): $(OBJS) $(LIBFT) $(LIBMLX)
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBFLAGS)
+	@echo "\n------------------------------------------\n"
+	@echo "📟 fract_ol ready!\n"
+	@echo "------------------------------------------\n"
 	
 # $^ represents all the prerequisites (object files, Libmlx and the libft library)
 # -o specifies the output file
 # $@ represents the target, which is the name of the executable
+
 
 # Compile each source file into object files
 %.o: %.c
@@ -63,11 +67,17 @@ clean:
 	rm -f $(OBJS)
 	$(MAKE) -C libft clean
 	$(MAKE) -C libmlx clean
+	@echo "\n------------------------------------------\n"
+	@echo "💧 Clean: Removed all the \".o\" files \n"
+	@echo "------------------------------------------\n"
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C libft fclean
-	$(MAKE) -C libmlx clean
+	@rm -f $(NAME)
+	@$(MAKE) -C libft fclean
+	@$(MAKE) -C libmlx clean
+	@echo "------------------------------------------\n"
+	@echo "🧼 Fclean: Removed the executables \n"
+	@echo "------------------------------------------\n"
 
 re: fclean all
 
