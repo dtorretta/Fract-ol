@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   params.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 19:18:31 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/21 23:51:30 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/23 18:13:01 by dtorrett          #+#    #+#             */
+/*   Updated: 2024/05/23 18:13:03 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	mandelbrot_param(t_data *fractal)
 {
 	fractal->iterations = 50;
-	fractal->zoom = 1;	
+	fractal->zoom = 1;
 	fractal->position_c.x = 0;
 	fractal->position_c.y = 0;
 	fractal->shift.x = 0;
@@ -26,13 +26,14 @@ void	mandelbrot_param(t_data *fractal)
 	fractal->line_length = 0;
 	fractal->endian = 0;
 }
+
 void	julia_param(t_data *fractal)
 {
 	fractal->iterations = 100;
 	fractal->zoom = 1;
 	fractal->position_c.x = -0.8;
 	fractal->position_c.y = 0.156;
-	fractal->color = 0x660066 / 100;
+	fractal->color = 0xff9966;
 	fractal->shift.x = 0;
 	fractal->shift.y = 0;
 	fractal->name = "julia";

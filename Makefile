@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/02 18:09:39 by dtorrett          #+#    #+#              #
-#    Updated: 2024/05/22 00:29:02 by marvin           ###   ########.fr        #
+#    Created: 2024/05/23 18:14:20 by dtorrett          #+#    #+#              #
+#    Updated: 2024/05/23 18:14:22 by dtorrett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = fract_ol
+NAME = fractol
 LIBFT = libft/libft.a
 LIBMLX_DIR = libmlx
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a

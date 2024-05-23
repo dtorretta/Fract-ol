@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 23:44:20 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/21 23:44:20 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/23 18:13:16 by dtorrett          #+#    #+#             */
+/*   Updated: 2024/05/23 18:13:16 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-void error_msg (void)
+void	error_msg(void)
 {
 	ft_putendl_fd("Please specify a valid fractol name", 2);
 	ft_putendl_fd("\n***Available fractals***", 2);
@@ -24,11 +24,11 @@ void error_msg (void)
 	exit(EXIT_FAILURE);
 }
 
-int ft_num(char *str, t_data *fractal)
+int	ft_num(char *str, t_data *fractal)
 {
-	int i;
+	int	i;
 
-	i = 0;	
+	i = 0;
 	if (str[0] == '-')
 		i++;
 	if (!ft_isdigit(str[i]))
@@ -40,7 +40,7 @@ int ft_num(char *str, t_data *fractal)
 		i++;
 	if ((str[i]) == '.')
 		i++;
-	while(str[i])
+	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 		{
@@ -50,16 +50,25 @@ int ft_num(char *str, t_data *fractal)
 		else
 			i++;
 	}
-	return(0);
+	return (0);
 }
 
-void    my_put_pixel(t_data *fractal, int x, int y, int iterations)
+// It sets the color of a pixel at coordinates (x, y) on the screen.
+// It calculates the exact memory address of the pixel in the image buffer 
+//to be colored, by using the fractal address, line length, and bpp.
+// If the number of iteration is equal to the maximum --> the point is inside
+//and the pixel color is set to black (0x000000).
+// Otherwise, the pixel color is determined by multiplying the fractal color
+//by the number of iterations. This creates a gradient effect, with the color
+//intensity increasing as the number of iterations increases.
+void	my_put_pixel(t_data *fractal, int x, int y, int iterations)
 {
-	char    *color_info;
- 
-	color_info = fractal->addr + (y * fractal->line_length) + (x * (fractal->bits_per_pixel / 8));
-	if (iterations == fractal->iterations) //dentro
+	char	*color_info;
+
+	color_info = fractal->addr + (y * fractal->line_length) + (x
+			* (fractal->bits_per_pixel / 8));
+	if (iterations == fractal->iterations) // dentro
 		*(unsigned int *)color_info = 0x000000;
-	else //fuera 
+	else // fuera
 		*(unsigned int *)color_info = fractal->color * iterations;
 }
