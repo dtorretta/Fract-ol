@@ -6,7 +6,7 @@
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:37:08 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/13 20:42:21 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:16:17 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,6 @@ char				*ft_strjoin_2(char *s1, const char *s2);
 char				*ft_strdup(const char *s);
 
 // MY CREATIONS //
-double			ft_atof(char *nptr);
+double				ft_atof(char *nptr);
 
 #endif

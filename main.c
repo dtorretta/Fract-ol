@@ -6,7 +6,7 @@
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:14:02 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/23 18:14:04 by dtorrett         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:17:26 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	mlx_utils_init(t_data *fractal, char *name)
 			&fractal->line_length, &fractal->endian);
 	return (0);
 }
+
 void	julia(t_data *fractal, char **argv)
 {
 	ft_num(argv[2], fractal);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtorrett <dtorrett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 18:12:49 by dtorrett          #+#    #+#             */
-/*   Updated: 2024/05/23 18:12:49 by dtorrett         ###   ########.fr       */
+/*   Created: 2024/05/23 18:35:10 by dtorrett          #+#    #+#             */
+/*   Updated: 2024/05/23 18:35:10 by dtorrett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 // The resulting color is then displayed on the screen using my_put_pixel
 void	fractal_mandel(int x, int y, t_data *mandel)
 {
-	int	i;
+	int		i;
 	double	z_x;
 	double	z_y;
 	double	tempz_x;
@@ -35,10 +35,10 @@ void	fractal_mandel(int x, int y, t_data *mandel)
 	i = 0;
 	z_x = 0;
 	z_y = 0;
-	mandel->position_c.x = x * (2.00 + 1.99) * mandel->zoom / WIDTH - 1.99
-		+ (mandel->shift.x * mandel->zoom);
-	mandel->position_c.y = y * (-2.00 - 1.99) * mandel->zoom / HEIGHT + 1.99
-		+ (mandel->shift.y * mandel->zoom);
+	mandel->position_c.x = x * (2.00 + 1.99) * mandel->zoom / WIDTH - (1.99
+			* mandel->zoom) + (mandel->shift.x * mandel->zoom);
+	mandel->position_c.y = y * (-2.00 - 1.99) * mandel->zoom / HEIGHT + (1.99
+			* mandel->zoom) + (mandel->shift.y * mandel->zoom);
 	while (i < mandel->iterations && z_x * z_x + z_y * z_y < 4)
 	{
 		tempz_x = z_x * z_x - z_y * z_y + mandel->position_c.x;

@@ -67,8 +67,8 @@ void	my_put_pixel(t_data *fractal, int x, int y, int iterations)
 
 	color_info = fractal->addr + (y * fractal->line_length) + (x
 			* (fractal->bits_per_pixel / 8));
-	if (iterations == fractal->iterations) // dentro
+	if (iterations == fractal->iterations)
 		*(unsigned int *)color_info = 0x000000;
-	else // fuera
+	else
 		*(unsigned int *)color_info = fractal->color * iterations;
 }
